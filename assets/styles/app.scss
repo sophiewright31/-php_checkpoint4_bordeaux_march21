@@ -5,3 +5,14 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/brands';
+
+@import 'variables.scss';
+@import 'homepage.scss';
+
+.form-register {
+  margin-top : 8rem;
+}
+
+p, h1, h2, h3, h4, a {
+  font-family: Roboto;
+}

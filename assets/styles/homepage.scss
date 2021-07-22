@@ -1,0 +1,21 @@
+body {
+  background-color: tan;
+  /*background-image: url('assets/images/dressing.jpg');
+  height: 400px;
+  background-size: cover;*/
+}
+
+.bloc-container .blocs1 {
+  margin: 1em auto;
+  padding: 2px 6px;
+  display: flex;
+  justify-content: center;
+}
+
+.bloc-picture{
+  margin: 1em auto;
+  padding: 2px 6px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
