@@ -1,20 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}All categories{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/sophiewright/Documents/checkpoints/php_checkpoint4_bordeaux_march21/src/Controller/CategoryController.php'|file_link(0) }}">src/Controller/CategoryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/sophiewright/Documents/checkpoints/php_checkpoint4_bordeaux_march21/templates/category/index.html.twig'|file_link(0) }}">templates/category/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1>All types : </h1>
+    {% for category in categories %}
+        <div>
+            <h2>{{ loop.index }} / Category : {{ category.name }}</h2>
+            <a href="{{ path("category_show", { categoryName: category.name }) }}">See more</a>
+        </div>
+    {% else %}
+        No category found.
+    {% endfor %}
 {% endblock %}

@@ -74,11 +74,6 @@ class Article
      */
     private $colors;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $slug;
-
     public function __construct()
     {
         $this->styles = new ArrayCollection();
@@ -248,18 +243,6 @@ class Article
         if ($this->colors->removeElement($color)) {
             $color->removeArticle($this);
         }
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

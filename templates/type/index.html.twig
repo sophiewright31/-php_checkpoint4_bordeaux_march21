@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TypeController!{% endblock %}
+{% block title %}All types{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>All types : </h1>
+    {% for type in types %}
+        <div>
+            <h2>{{ loop.index }} / {{ type.name }} - Category : {{ type.category.name }}</h2>
+            <a href="{{ path("type_show", { slug: type.slug }) }}">See more</a>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/sophiewright/Documents/checkpoints/php_checkpoint4_bordeaux_march21/src/Controller/TypeController.php'|file_link(0) }}">src/Controller/TypeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/sophiewright/Documents/checkpoints/php_checkpoint4_bordeaux_march21/templates/type/index.html.twig'|file_link(0) }}">templates/type/index.html.twig</a></code></li>
-    </ul>
-</div>
+        </div>
+    {% else %}
+        No type found
+    {% endfor %}
+    <br><br>
+    <a href="{{ path('homepage') }}">
+        Back to homepage
+    </a>
 {% endblock %}

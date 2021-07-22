@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+ {% block title %}All Styles{% endblock %}
+
+ {% block body %}
+     <h1> All Styles </h1>
+     <ul>
+         {% for style in styles %}
+             <li><a href="{{ path('style_show', {styleName: style.name}) }}">{{ style.name }}</a></li>
+         {% else %}
+             No style found
+         {% endfor %}
+     </ul>
+
+
+     <br><br>
+     <a href="{{ path('homepage') }}">
+         Back to homepage
+     </a>
+
+ {% endblock %}

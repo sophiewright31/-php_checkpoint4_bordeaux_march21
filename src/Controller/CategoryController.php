@@ -8,16 +8,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/categories", name="category_")
+ */
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/categories", name="category_index")
+     * @Route("/", name="index")
      */
     public function index(): Response
     {
-        return $this->render('category/index.html.twig', [
-            'controller_name' => 'CategoryController',
-        ]);
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
+        return $this->render(
+            'category/index.html.twig',
+            ['categories' => $categories]
+        );
     }
 
     /** @Route ("/{categoryName}", name="show")
@@ -38,9 +45,9 @@ class CategoryController extends AbstractController
 
         $types = $this->getDoctrine()
             ->getRepository(Type::class)
-            ->findBy(['category' => $category], ['id' => 'DESC'],3);
+            ->findBy(['category' => $category], ['id' => 'ASC'],20);
 
-        return $this->render('category/index.html.twig', [
+        return $this->render('category/show.html.twig', [
             'category' => $category,
             'types' => $types,
         ]);

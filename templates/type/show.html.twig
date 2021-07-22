@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block title %}Types #{{ type.id }}{% endblock %}
+
+{% block body %}
+
+    <div class="media">
+        <div class="media-body">
+            <h1 class="mt-0">{{ type.name }}</h1>
+            <p>Category : {{ type.category.name }}</p>
+            <ul>
+                {% for article in type.articles %}
+                    <li><a href="{{ path("type_article_show", { slug: type.slug, article: article.id }) }}">Article : {{ article.name }}</a></li>
+                {% else %}
+                    <p> No article found </p>
+                {% endfor %}
+            </ul>
+
+        </div>
+    </div>
+
+    <a href="{{ path('type_index') }}">
+        Back to type list
+    </a>
+
+{% endblock %}

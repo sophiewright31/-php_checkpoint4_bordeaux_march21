@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Category {% endblock %}
+
+{% block body %}
+
+    {% for type in types %}
+        <div>
+            <h2>{{ type.id }}  -   {{ type.name }}</h2>
+            <a href="{{ path("type_show", { slug: type.slug }) }}">See more</a>
+        </div>
+    {% else %}
+        No style found
+    {% endfor %}
+
+    <a href="{{ path('category_index') }}">
+        back to category
+    </a>
+
+{% endblock %}

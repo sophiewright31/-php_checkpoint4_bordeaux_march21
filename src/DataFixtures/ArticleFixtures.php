@@ -20,7 +20,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
     {
         $article1 = new Article();
         $article1->setName('Tweed Blazer');
-        $article1->setSlug($this->slugify->generate($article1->getName()));
+        //$article1->setSlug($this->slugify->generate($article1->getName()));
         $article1->setType($this->getReference('type_0'));
         $article1->setDescription('Short Tweed Blazer with perl buttons');
         $article1->setBrand('Parisian');
@@ -39,7 +39,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
 
         $article2 = new Article();
         $article2->setName('Pastel Green Dress');
-        $article2->setSlug($this->slugify->generate($article2->getName()));
+        //$article2->setSlug($this->slugify->generate($article2->getName()));
         $article2->setType($this->getReference('type_1'));
         $article2->setDescription('Short dress cache-coeur with lace');
         $article2->setBrand('Asos Design');
@@ -56,7 +56,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
 
         $article3 = new Article();
         $article3->setName('Floral Red Jumpsuit');
-        $article3->setSlug($this->slugify->generate($article3->getName()));
+        //$article3->setSlug($this->slugify->generate($article3->getName()));
         $article3->setType($this->getReference('type_2'));
         $article3->setDescription('Short floral red jumpsuit with long sleeves');
         $article3->setBrand('H&M');
@@ -72,7 +72,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
 
         $article4 = new Article();
         $article4->setName('Short Floral Top');
-        $article4->setSlug($this->slugify->generate($article4->getName()));
+        //$article4->setSlug($this->slugify->generate($article4->getName()));
         $article4->setType($this->getReference('type_3'));
         $article4->setDescription('Short floral top Bardot Style');
         $article4->setBrand('Missguided');
@@ -89,7 +89,7 @@ class ArticleFixtures extends Fixture implements DependentFixtureInterface
 
         $article5 = new Article();
         $article5->setName('Logo T-shirt');
-        $article5->setSlug($this->slugify->generate($article5->getName()));
+        //$article5->setSlug($this->slugify->generate($article5->getName()));
         $article5->setType($this->getReference('type_4'));
         $article5->setDescription('T-Shirt with logo');
         $article5->setBrand('Noisy May');

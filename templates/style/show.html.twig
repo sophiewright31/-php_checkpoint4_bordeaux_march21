@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+ {% block title %}Style #{{ style.name }}{% endblock %}
+
+ {% block body %}
+
+     <h1 class="mt-0">{{ style.name }}</h1>
+
+     <h2>Articles list with this style</h2>
+
+     <ul>
+         {% for article in style.articles %}
+             <li><a href="{{ path('article_show', {id: article.id}) }}">{{ article.name }}</a></li>
+         {% else %}
+             <p> No article associated </p>
+         {% endfor %}
+     </ul>
+
+     <a href="{{ path('style_index') }}">
+         Back to style list
+     </a>
+
+ {% endblock %}

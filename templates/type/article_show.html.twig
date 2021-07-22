@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article #{{ type.id }}{% endblock %}
+
+{% block body %}
+
+    <div class="media">
+        <div class="media-body">
+            <img class="align-self-start mr-3" src="{{article.picture}}" alt="{{ article.name }} poster">
+            <h1 class="mt-0">{{ article.name }}</h1>
+            <br>
+            <h2> Size : {{ article.size}} -- Brand : {{ article.brand}} -- Buying Year : {{ article.buying_year}}</h2>
+            <h3>Availability : {{ article.availability}} -- Location : {{ article.location}}</h3>
+            <p>{{ article.description}}</p>
+
+        </div>
+    </div>
+
+    <a href="{{ path('type_show', {slug: type.slug}) }}">
+        Back to type list
+    </a>
+
+{% endblock %}

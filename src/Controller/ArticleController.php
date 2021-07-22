@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Service\Slugify;
 
 /**
- * @Route("/article")
+ * @Route("/articles")
  */
 class ArticleController extends AbstractController
 {
@@ -30,15 +30,15 @@ class ArticleController extends AbstractController
     /**
      * @Route("/new", name="article_new", methods={"GET","POST"})
      */
-    public function new(Request $request, Slugify $slugify): Response
+    public function new(Request $request): Response
     {
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $slug = $slugify->generate($article->getName());
-            $article->setSlug($slug);
+            //$slug = $slugify->generate($article->getName());
+            //$article->setSlug($slug);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($article);
             $entityManager->flush();
@@ -53,8 +53,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="article_show", methods={"GET"})
-     * @ParamConverter("article", class="App\Entity\Article", options={"mapping": {"article_slug": "slug"}})
+     * @Route("/{id}", name="article_show", methods={"GET"})
      */
     public function show(Article $article): Response
     {
@@ -64,15 +63,15 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}/edit", name="article_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="article_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Article $article, Slugify $slugify): Response
+    public function edit(Request $request, Article $article): Response
     {
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $article->setSlug($slugify->generate($article->getName()));
+            //$article->setSlug($slugify->generate($article->getName()));
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('article_index', [], Response::HTTP_SEE_OTHER);
@@ -85,7 +84,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="article_delete", methods={"POST"})
+     * @Route("/{id}", name="article_delete", methods={"POST"})
      */
     public function delete(Request $request, Article $article): Response
     {
