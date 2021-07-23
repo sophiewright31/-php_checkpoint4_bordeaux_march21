@@ -3,7 +3,7 @@
 {% block title %}Article index{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
+    <h1>All articles</h1>
 
     <table class="table">
         <thead>
@@ -13,11 +13,10 @@
                 <th>Description</th>
                 <th>Brand</th>
                 <th>Size</th>
-                <th>Picture</th>
                 <th>BuyingYear</th>
                 <th>Availability</th>
                 <th>Location</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -28,7 +27,6 @@
                 <td>{{ article.description }}</td>
                 <td>{{ article.brand }}</td>
                 <td>{{ article.size }}</td>
-                <td>{{ article.picture }}</td>
                 <td>{{ article.buyingYear }}</td>
                 <td>{{ article.availability }}</td>
                 <td>{{ article.location }}</td>

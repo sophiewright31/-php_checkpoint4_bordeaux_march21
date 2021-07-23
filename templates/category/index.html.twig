@@ -3,13 +3,17 @@
 {% block title %}All categories{% endblock %}
 
 {% block body %}
-    <h1>All types : </h1>
+    <h1>All Categories : </h1>
     {% for category in categories %}
-        <div>
-            <h2>{{ loop.index }} / Category : {{ category.name }}</h2>
-            <a href="{{ path("category_show", { categoryName: category.name }) }}">See more</a>
-        </div>
-    {% else %}
-        No category found.
+
+                    <h2>{{ category.name }}</h2>
+                    <a href="{{ path("category_show", { categoryName: category.name }) }}">See more</a>
+
     {% endfor %}
+<div class="bloc-picture">
+            <div class="blocs"><img src="{{ asset('/images/hat.jpg') }}" alt="hat" height="350px" width="250px"/></div>
+            <div class="blocs"><img src="{{ asset('/images/category.jpg') }}" alt="dressing" height="350px"/></div>
+            <div class="blocs"><img src="{{ asset('/images/glasses.jpg') }}" alt="sunglasses" height="350px" width="250px"/></div>
+</div>
+
 {% endblock %}

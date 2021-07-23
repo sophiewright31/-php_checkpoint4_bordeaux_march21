@@ -16,3 +16,22 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 p, h1, h2, h3, h4, a {
   font-family: Roboto;
 }
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+a {
+  text-align: center;
+  color: #9c4646;
+
+}
+
+ul {
+  list-style-type:none;
+}
